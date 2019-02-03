@@ -8,6 +8,11 @@ public class Recursion{
 
     */
 
+    public static void main(String[] args){
+        System.out.println(makeAllSums(3));
+        System.out.println(makeAllSums(4));
+    }
+
     public static double sqrt(double n, double tolerance){
         return sr(n, tolerance, 1);
     }
@@ -36,5 +41,18 @@ public class Recursion{
 
     /*As Per classwork*/
     public static ArrayList<Integer> makeAllSums(int n){
-        return new ArrayList<Integer>();
+        ArrayList<Integer> allsums = new ArrayList<Integer>();
+        mas(0, allsums, n, 1);
+        return allsums;
     }
+
+    public static void mas(int cur, ArrayList<Integer> allsums, int n, int depth){
+        if(n == depth){
+            allsums.add(cur);
+            allsums.add(cur + depth);
+        }
+        mas(cur, allsums, n, depth + 1);
+        mas(cur + depth, allsums, n, depth + 1);
+    }
+
+}
