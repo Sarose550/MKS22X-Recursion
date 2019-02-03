@@ -8,11 +8,6 @@ public class Recursion{
 
     */
 
-    public static void main(String[] args){
-        System.out.println(makeAllSums(3));
-        System.out.println(makeAllSums(4));
-    }
-
     public static double sqrt(double n, double tolerance){
         return sr(n, tolerance, 1);
     }
@@ -51,8 +46,10 @@ public class Recursion{
             allsums.add(cur);
             allsums.add(cur + depth);
         }
-        mas(cur, allsums, n, depth + 1);
-        mas(cur + depth, allsums, n, depth + 1);
+        else{
+            mas(cur, allsums, n, depth + 1);
+            mas(cur + depth, allsums, n, depth + 1);
+        }
     }
 
 }
