@@ -7,8 +7,15 @@ public class Recursion{
      *precondition: n is non-negative
 
     */
-    public static double sqrt(double n, double tolerance){
 
+    public static double sqrt(double n, double tolerance){
+        return sr(n, tolerance, 1);
+    }
+
+    public static double sr(double n, double tolerance, double g){
+        g = 0.5 * (g + n / g);
+        if(Math.abs((g * g - n) / n) <= Math.abs(tolerance)) return g;
+        return sr(n, tolerance, g);
     }
 
     /*Recursively find the n'th fibbonaci number in linear time
@@ -29,6 +36,5 @@ public class Recursion{
 
     /*As Per classwork*/
     public static ArrayList<Integer> makeAllSums(int n){
+        return new ArrayList<Integer>();
     }
-
-}
